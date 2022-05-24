@@ -19,3 +19,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
  
 Route::resource('desainer', App\Http\Controllers\API\DesainerController::class);
+Route::resource('konveksi', App\Http\Controllers\API\KonveksiController::class);
+Route::resource('kategori', App\Http\Controllers\API\KategoriController::class);
+Route::resource('produk', App\Http\Controllers\API\ProdukController::class);

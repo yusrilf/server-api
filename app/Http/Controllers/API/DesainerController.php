@@ -82,8 +82,6 @@ class DesainerController extends Controller
             return response()->json($validator->errors());       
         }
 
-        $desainer->name = $request->name;
-        $desainer->desc = $request->desc;
         $desainer->id = $request->img_profil;
         $desainer->id = $request->nama;
         $desainer->id = $request->bio;
