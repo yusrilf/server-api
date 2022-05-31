@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+Use App\Http\Controllers\API\DesainerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
-});
+}); 
  
-Route::resource('desainer', App\Http\Controllers\API\DesainerController::class);
 Route::resource('konveksi', App\Http\Controllers\API\KonveksiController::class);
 Route::resource('kategori', App\Http\Controllers\API\KategoriController::class);
 Route::resource('produk', App\Http\Controllers\API\ProdukController::class);
+Route::resource('desainer', App\Http\Controllers\API\DesainerController::class);
+
+
+// route khusus
+Route::get('produk_desc_rating', 'App\Http\Controllers\API\ProdukController@desc_rating');
+Route::get('konveksi_desc_rating', 'App\Http\Controllers\API\KonveksiController@desc_rating');
+Route::get('desainer_desc_rating', 'App\Http\Controllers\API\DesainerController@desc_rating');
+Route::get('product_filter_category/{nama_kategori}', 'App\Http\Controllers\API\ProdukController@filter_kategori');
