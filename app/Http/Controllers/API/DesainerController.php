@@ -29,6 +29,7 @@ class DesainerController extends Controller
                     ->join('pengalaman_desainer', 'desainer.id_pengalaman', '=','pengalaman_desainer.id')
                     ->select('desainer.id as id','desainer.img_profil as img_profil','desainer.nama as nama','desainer.bio as bio','desainer.rating as rating','desainer.link_wa as link_wa','desainer.link_porto as link_porto','desainer.gender as gender','desainer.jmlh_project as jmlh_project','kategori.nama_kategori as kategori','tarif.tag as tarif')
                     ->orderBy('desainer.rating', 'DESC')
+                    ->limit(5)
                     ->get();
         $count = Desainer::count();
         return response()->json(['status'=>'ok','totalResults'=>$count ,'desainer'=>$desainer]);

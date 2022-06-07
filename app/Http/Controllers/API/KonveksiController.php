@@ -28,6 +28,7 @@ class KonveksiController extends Controller
                     ->join('pengalaman_konveksi', 'konveksi.id_pengalaman', '=','pengalaman_konveksi.id')
                     ->select('konveksi.id as id','konveksi.img_profil as img_profil','konveksi.nama as nama','konveksi.bio as bio','konveksi.rating as rating','konveksi.link_wa as link_wa','konveksi.link_porto as link_porto','konveksi.jmlh_project as jmlh_project','kategori.nama_kategori as kategori','tarif.tag as tarif')
                     ->orderBy('konveksi.rating', 'DESC')
+                    ->limit(5)
                     ->get();
         $count = Konveksi::count();
         return response()->json(['status'=>'ok','totalResults'=>$count ,'konveksi'=>$konveksi]);

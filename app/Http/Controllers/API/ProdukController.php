@@ -39,7 +39,7 @@ class ProdukController extends Controller
                 ->join('desainer', 'produk.id_desainer', '=','desainer.id')
                 ->join('kategori', 'desainer.id_kategori', '=','kategori.id')
                 ->select('produk.id as id','produk.nama as nama','produk.img_produk as img_produk','produk.harga as harga','produk.rating as rating','produk.deskripsi as deskripsi','produk.id_desainer as id_desainer','desainer.img_profil as img_profil','desainer.nama as nama_desainer','desainer.bio as bio_desainer','desainer.rating as rating_desainer','desainer.link_wa as link_wa','desainer.link_porto as link_porto','desainer.jmlh_project as jmlh_project','kategori.nama_kategori as kategori')
-                ->where('kategori.nama_kategori', $nama_kategori)
+                ->where('produk.nama_kategori', $nama_kategori)
                 ->get();
         $count = Produk::count();
         return response()->json(['status'=>'ok','totalResults'=>$count ,'produk'=>$produk]);
